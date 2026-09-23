@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------
+   Design tokens. Change the look of the whole site from here.
+   ------------------------------------------------------------ */
+:root {
+  /* Color */
+  --color-bg: #e8eae6;          /* page background */
+  --color-surface: #d6dad3;     /* placeholders, subtle fills */
+  --color-ink: #1f2433;         /* main text */
+  --color-muted: #5d6270;       /* secondary text */
+  --color-accent: #2f4bd8;      /* hover, focus, active nav */
+  --color-line: rgb(31 36 51 / 0.2);
+
+  /* Type */
+  --font-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans); /* swap to a second family if you want contrast */
+
+  --step--1: 0.833rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: clamp(1.9rem, 4vw, 2.75rem);
+  --step-4: clamp(2.4rem, 6.2vw, 5.5rem);  /* hero statement */
+
+  --leading-tight: 1.04;
+  --leading-body: 1.5;
+  --tracking-display: -0.03em;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: clamp(5rem, 12vw, 9rem);
+
+  /* Layout */
+  --gutter: clamp(1rem, 3vw, 2.5rem);   /* page edge + grid gap */
+  --max-width: 1600px;
+  --measure: 60ch;                      /* max line length for body text */
+  --radius: 0;                          /* try 4px or 12px for a softer feel */
+}
