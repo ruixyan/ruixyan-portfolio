@@ -3,42 +3,42 @@
    ------------------------------------------------------------ */
    @font-face {
     font-family: "Social-Regular";
-    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Regular.otf") format("woff2");
+    src: url("/fonts/Social/ABC\ Social/ABCSocialTrial-Regular.otf") format("woff2");
     font-weight: 400;
     font-display: swap;
   }
 
   @font-face {
     font-family: "Social-Bold";
-    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Black.otf") format("woff2");
+    src: url("/fonts/Social/ABC\ Social/ABCSocialTrial-Black.otf") format("woff2");
     font-weight: 700;
     font-display: swap;
   }
 
   @font-face {
     font-family: "Synt-Regular";
-    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Regular.otf") format("woff2");
+    src: url("/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Regular.otf") format("woff2");
     font-weight: 800;
     font-display: swap;
   }
 
   @font-face {
     font-family: "Synt-Medium";
-    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Medium.otf") format("woff2");
+    src: url("/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Medium.otf") format("woff2");
     font-weight: 800;
     font-display: swap;
   }
 
   @font-face {
     font-family: "Social-Mono";
-    src: url("/public/fonts/Social/ABC Social Mono/ABCSocialMonoTrial-Regular.otf") format("woff2");
+    src: url("/fonts/Social/ABC Social Mono/ABCSocialMonoTrial-Regular.otf") format("woff2");
     font-weight: 800;
     font-display: swap;
   }
 
   @font-face {
     font-family: "Monument-Regular";
-    src: url("/public/fonts/Monument Grotesk/ABC Monument Grotesk/ABCMonumentGroteskTrial-Regular.otf") format("woff2");
+    src: url("/fonts/Monument Grotesk/ABC Monument Grotesk/ABCMonumentGroteskTrial-Regular.otf") format("woff2");
     font-weight: 800;
     font-display: swap;
   }
@@ -48,7 +48,7 @@
   /* Color */
   --color-bg: #f3f3f3;          /* page background */
   --color-surface: #d6dad3;     /* placeholders, subtle fills */
-  --color-ink: #0b0f1b;         /* main text */
+  --color-ink: #030208;         /* main text */
   --color-muted: #5d6270;       /* secondary text */
   --color-accent: #752fd8;      /* hover, focus, active nav */
   --color-line: rgb(31 36 51 / 0.2);
@@ -67,7 +67,7 @@
 
   --leading-tight: 1.04;
   --leading-body: 1.5;
-  --tracking-display: -0.025rem;
+  --tracking-display: -0.015rem;
 
   /* Space */
   --space-1: 0.25rem;

@@ -16,9 +16,9 @@ export default function Header() {
 
       <nav aria-label="Main">
         <ul className="nav-list">
-          <li><NavLink to="/" end>Home</NavLink></li>
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><a href={`mailto:${site.email}`}>Contact</a></li>
+          <li><NavLink to="/" end>HOME</NavLink></li>
+          <li><NavLink to="/about">ABOUT</NavLink></li>
+          <li><a href={`mailto:${site.email}`}>CONTACT</a></li>
           <li><ThemeToggle /></li>
         </ul>
       </nav>

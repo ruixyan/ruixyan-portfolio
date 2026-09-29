@@ -111,14 +111,29 @@ a:hover { color: var(--color-accent); }
 .footer-links { display: flex; gap: var(--space-4); color: var(--color-muted); }
 
 /* ---------- Shared type ---------- */
-.page-title,
-.project-title {
+.page-title {
   font-family: var(--font-display);
   font-size: var(--step-3);
   font-weight: 700;
   line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  letter-spacing: -0.05em;
 }
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+}
+.project-next a {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+}
+
 .section-heading {
   font-size: var(--step-0);
   font-weight: 500;
@@ -189,7 +204,7 @@ a:hover { color: var(--color-accent); }
   font-size: var(--step-2);
   font-weight: 700;
   line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);   /* or a fixed value like -0.01em */
+  letter-spacing: -0.005em;  /* or a fixed value like -0.01em */
 }
 .work-row-tags {
   margin-top: var(--space-3);
@@ -243,12 +258,6 @@ a:hover { color: var(--color-accent); }
   margin-top: var(--space-7);
 }
 .project-next span { color: var(--color-muted); }
-.project-next a {
-  font-size: var(--step-3);
-  font-weight: 700;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
-}
 
 @media (min-width: 900px) {
   .project-info { grid-template-columns: 1fr 2fr; }
@@ -405,4 +414,24 @@ a:hover { color: var(--color-accent); }
   }
   @media (min-width: 900px) {
     .block-grid-images { grid-template-columns: repeat(var(--grid-cols), 1fr); }
+  }
+
+  .block-embed-frame {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #000;
+  }
+  .block-embed-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .block-video video {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius);
+    background: #000;
   }

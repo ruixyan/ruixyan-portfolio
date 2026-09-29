@@ -12,11 +12,15 @@ export const projects = [
     tools: "After Effects",
     summary: "A lyric video for the song Starlight by Muse.",
     body: [
-      "Describe the brief, what you tried, and what you decided. Two or three short paragraphs is plenty.",
+      "A lyric video for Starlight by Muse. I chose the song for its atmosphere: dreamlike and a little grungy, with lyrics about yearning for something that's out of reach.",
     ],
     blocks: [
+      { type: "embed", src: "https://www.youtube.com/watch?v=B9e3GGrVyM8", caption: "Full lyric video" },
       { type: "image", src: "/work/starlight/starlight_frames.png" },
-  
+    
+      { type: "text", content: "The visuals mirror that sense of distance. The lyrics drift in soft, hazy and slightly out of focus, as if they're hard to hold onto, set against a worn, textured background." },
+      { type: "text", content: "I distorted and roughened the type throughout so it would carry the same grain as the music, letting the texture of the sound show up in the letterforms themselves." },
+    
       { type: "grid", images: [
           "/work/starlight/starlight_3.gif",
           "/work/starlight/Sequence_01.mp4",
@@ -42,28 +46,40 @@ export const projects = [
     summary: "Web design and development work for Onishi Gallery.",
     body: ["During my internship, I designed and developed an internal database for Onishi Gallery, to organize all of their artwork, artist and client information."],
 
-blocks: [
-  { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg" },
-
-  { type: "heading", content: "The problem" },
-  { type: "text", content: "The original database they were using was a Dropbox folder that was disorganized and convoluted, so I was tasked with making a cleaner and more user-friendly system that they could easily use to categorize and search for three categories: artworks, artists and clients." },
-
-  { type: "heading", content: "Research" },
-  { type: "text", content: "I decided on using Next.js and Supabase to build the project because..." },
-  { type: "image", src: null, wide: false, caption: "How artworks, artists and clients connect" },
-
-  { type: "heading", content: "Design decisions" },
-  { type: "side", src: null, content: "Filters: …" },
-  { type: "side", src: null, flip: true, content: "Artwork cards: …" },
-
-  { type: "heading", content: "Building it" },
-  { type: "text", content: "…" },
-
-  { type: "grid", images: [null, null, null, null], ratio: "16 / 10", caption: "Artworks, artists, clients, price list" },
-
-  { type: "heading", content: "Outcome" },
-  { type: "text", content: "…" },
-],
+    blocks: [
+      { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg" },
+    
+      { type: "heading", content: "The problem" },
+      { type: "text", content: "Onishi Gallery kept its records in a shared Dropbox folder: files for artworks, artists and clients, spread across folders with no consistent structure. Answering a simple question, like which pieces by one artist were still available, meant opening file after file." },
+      { type: "text", content: "My brief was to replace it with one system the staff could search and update themselves, without needing any technical knowledge." },
+    
+      { type: "heading", content: "Understanding the gallery" },
+      { type: "text", content: "I started by [talking with the staff / watching how they used the Dropbox folder]. Three things came up again and again: they needed to find work by artist, see at a glance what was still available, and pull together price lists for clients quickly." },
+      { type: "image", src: null, wide: false, caption: "How artworks, artists and clients connect" },
+    
+      { type: "heading", content: "Design decisions" },
+      { type: "side", src: null, content: "Search and filters sit in a fixed sidebar, so staff can narrow the collection by artist, artwork or client name, availability and price range without leaving the page." },
+      { type: "side", src: null, flip: true, content: "Each artwork card shows only what's needed to recognise a piece: the image, title, artist, year and price. Status tags like Unique and Available make it clear what can be offered without opening each record." },
+      { type: "side", src: "/work/onishi/onishi-artwork-detail-blurred.png", content: "The interface stays quiet, in white and grey with the gallery's red used only for key actions, so the artwork photography is always the focus." },
+    
+      { type: "heading", content: "Building it" },
+      { type: "text", content: "I built the tool with Next.js and Supabase, deployed on Vercel. Supabase gave the gallery a real database with secure logins, and its free tier suited a small team's budget. Next.js let me build the interface and data handling in one codebase, and Vercel made updates as simple as pushing a change." },
+      { type: "text", content: "Artworks, artists and clients each live in their own table and link to one another, so an artist's page can list all their work and a client's record can show what they've bought. Filtering happens instantly in the browser, and the layout adapts for phones so staff can look things up away from their desk." },
+    
+      { type: "grid", images: [
+          "/work/onishi/onishi-mockup-blurred.jpg",
+          "/work/onishi/onishi-artwork-detail-blurred.png",
+          "/work/onishi/onishi-artists.png",
+          "/work/onishi/onishi-add-art.png",
+        ],
+        ratio: "16 / 10",
+        caption: "Artwork list, artwork detail, artists, adding an artwork",
+      },
+    
+      { type: "heading", content: "Outcome" },
+      { type: "text", content: "[The gallery now uses the tool for… / Staff can now find a piece and build a price list in minutes rather than digging through folders.] [One line of feedback from the staff, if you have it.]" },
+      { type: "text", content: "Next, I'd like to [add … / improve …]." },
+    ],
   },
   {
     slug: "symbiosis",
@@ -75,16 +91,28 @@ blocks: [
     ratio: "auto",
     cover: "/work/symbiosis/sym_thumbnail.mp4",
     role: "Designer, Developer",
-    tools: "Figma, Next.js",
-    summary: "A font design project that explores the relationship between humanity and technology within the design of the font, and the interaction in the website.",
-    body: ["SYMBIOSIS is a font that was created to explore humanity’s relationship with technology, whether that be as a helpful tool, or a sinister dependence.",
-
-    "Featuring a distortion axis, the font starts with my own scanned handwriting, then goes through 6 levels of algorithmic (with code, not AI) distortion to create 6 total weights. I designed a font specimen book to detail my design process, and created a font foundry website to display the font.."],
-    images: [
-      "/work/symbiosis/sym_thumbnail.mp4", 
-      "/work/symbiosis/SYMBIOSIScovers.png",
-      "/work/symbiosis/symspreads1.png",
-      "/work/symbiosis/symspreads2.png",
+    tools: "Figma, Next.js, MediaPipe",
+    link: "https://your-symbiosis-site-url",
+    summary: "A typeface and interactive foundry website exploring the relationship between humanity and technology.",
+    body: [
+      "SYMBIOSIS is a typeface that explores humanity's relationship with technology, whether as a helpful tool or a sinister dependence.",
+    ],
+    blocks: [
+      { type: "image", src: "/work/symbiosis/sym_thumbnail.mp4" },
+  
+      { type: "heading", content: "The typeface" },
+      { type: "text", content: "The font is built around a distortion axis. It starts with my own scanned handwriting, then passes through six levels of algorithmic distortion, written in code rather than generated with AI, to create six weights that move from human to machine." },
+  
+      { type: "heading", content: "Specimen book" },
+      { type: "text", content: "I designed a specimen book to document the process, from the first handwriting scans to the final distorted weights." },
+      { type: "image", src: "/work/symbiosis/SYMBIOSIScovers.png", caption: "Specimen book covers" },
+      { type: "image", src: "/work/symbiosis/symspreads1.png" },
+      { type: "image", src: "/work/symbiosis/symspreads2.png", caption: "Inside spreads" },
+  
+      { type: "heading", content: "Foundry website" },
+      { type: "text", content: "For the foundry site, I wanted to reimagine standard website UI as something more tactile, pushing the idea of human and machine further. Using MediaPipe to track hand movement, I built a way to navigate the site and interact with its components through hand gestures." },
+      { type: "image", src: "/work/symbiosis/symbiosis_scroll.mp4", caption: "Browsing the foundry site" },
+      { type: "image", src: "/work/symbiosis/symbiosis_editor.mp4", caption: "Type editor" },
     ],
   },
   {
@@ -94,15 +122,33 @@ blocks: [
     year: 2025,
     tags: ["Creative Coding"],
     size: "large",
-    ratio: "4 / 3",
+    ratio: "auto",
     cover: "/work/billboard/billboard_cover.png",
     role: "Designer, Developer",
     tools: "Figma, Next.js",
-    summary: "Reimaging Billboard's logo with a generative twist using Hot 100 songs' metadata.",
-    body: ["This logo redesign utilizes track data fetched by the Spotify Audio Features / Track Analysis API to dynamically change the heights of the bars within the Billboard logo, based on 5 pieces of data: key signature, tempo, duration, energy, and valence (or happiness). The values of these data outputs are then mapped to the heights of the bars, based on a range of preset values: 1 - 12 for key, 60 - 200 for tempo, 0 - 6 minutes for duration, 0 - 100 for energy, and 0 - 100 for valence.",
-
-    "The static version of the logo provides a personalized representation of a given song. Additionally, the website version of the logo animates itself to the audio of the current top song of any chart."],
-    images: [null, null],
+    summary: "Reimagining Billboard's logo with a generative twist, using Hot 100 songs' metadata.",
+    body: [
+      "A generative redesign of the Billboard logo. The bars in the wordmark change height based on the song they represent, so every track on the chart gets its own version of the logo.",
+    ],
+    blocks: [
+      { type: "image", src: "/work/billboard/billboard.png" },
+  
+      { type: "heading", content: "How it works" },
+      { type: "side", src: "/work/billboard/logo.png", content: "Each logo is built from track data fetched with Spotify's Audio Features and Audio Analysis API. Five values drive the five bars: key signature, tempo, duration, energy, and valence (how happy a song sounds)." },
+      { type: "text", content: "Each value is mapped to a bar height within a preset range: 1–12 for key, 60–200 BPM for tempo, 0–6 minutes for duration, and 0–100 for both energy and valence. A slow, sombre ballad and an upbeat pop hit end up with visibly different logos." },
+      { type: "image", src: "/work/billboard/billboard_logos.png", caption: "Logos generated from different Hot 100 songs" },
+  
+      { type: "heading", content: "On the web" },
+      { type: "text", content: "The static logo works as a personalised mark for a single song. On the website, the logo comes alive: it animates in time with the audio of the current top song on any chart." },
+      { type: "image", src: "/work/billboard/billboard_walkthrough.mp4", caption: "Website walkthrough" },
+      { type: "pair", images: [
+          "/work/billboard/billboardphone.png",
+          "/work/billboard/billboard_favicon.png",
+        ],
+        ratio: "1 / 1",
+        caption: "Mobile and favicon",
+      },
+    ],
   },
   {
     slug: "cowhered-and-weaver-girl",
@@ -121,6 +167,17 @@ blocks: [
     images: [
       "/work/cowherd/chwg_all.png",
       "/work/cowherd/cover_final.png",
+      "/work/cowherd/final_export.png",
+      "/work/cowherd/final_export2.png",
+      "/work/cowherd/final_export3.png",
+      "/work/cowherd/final_export4.png",
+      "/work/cowherd/final_export5.png",
+      "/work/cowherd/final_export6.png",
+      "/work/cowherd/final_export7.png",
+      "/work/cowherd/final_export8.png",
+      "/work/cowherd/final_export9.png",
+      "/work/cowherd/final_export10.png",
+
     ],
   },
   {
@@ -159,4 +216,62 @@ blocks: [
     body: ["Project text."],
     images: [null, null],
   },
+
+  {
+    slug: "bloomberg-editorial-illustration",
+    title: "Bloomberg Editorial Illustration",
+    featured: true,
+    year: 2025,
+    tags: ["Creative Coding", "Illustration"],
+    size: "large",
+    ratio: "auto",
+    cover: "/work/bloomberg/bloomberg_thumbnail.mp4",
+    role: "Designer, Illustrator",
+    tools: "Procreate, Indesign",
+    summary: "An interactive illustration for a Bloomberg opinion piece designed for both web and print.",
+    body: ["An interactive illustration for the Bloomberg opinion piece: Does the World Hate Your Favorite Brands Now? The article and the illustration shows the changing attitudes of global consumers towards American made goods, and their steadily increasing choices to buy local. This illustration was designed to work with print, web and mobile."],
+    images: ["/work/bloomberg/bloomberg_digital_mockup.mp4", "/work/bloomberg/bloomberg_print_mockup.png"],
+  },
+
+  {
+    slug: "power-on",
+    title: "Power On",
+    featured: true,
+    year: 2025,
+    tags: ["UI/UX", "Illustration"],
+    size: "large",
+    ratio: "auto",
+    cover: "/work/power-on/power_on_thumbnail.png",
+    role: "Designer, Illustrator",
+    tools: "Figma, Procreate",
+    summary: "An app designed to help users connect with their community through a period of water and power outages.",
+    body: [
+      "Power On is an online platform that helps a community manage a hypothetical crisis in downtown Manhattan, where every building faces intermittent water and electricity outages, both scheduled and unscheduled.",
+    ],
+    blocks: [
+      { type: "image", src: "/work/power-on/project3mockup.png" },
+  
+      { type: "heading", content: "Outages first" },
+      { type: "text", content: "The outages are the most important part of the app, so the daily and weekly schedules sit right on the homepage, alongside any unscheduled outages other residents have reported. The report button lives there too, so anyone can flag a new outage in a tap, and a sort feature lets users find the outages that matter most to them." },
+      { type: "image", src: "/work/power-on/poweronphones.png" },
+  
+      { type: "grid", images: [
+          "/work/power-on/power_on_1st_screens.png",
+          "/work/power-on/power_on_2nd_screens.png",
+          "/work/power-on/power_on_3rd_screens.png",
+          "/work/power-on/power_on_4th_screens.png",
+        ],
+        columns: 2,
+        caption: "Key screens",
+      },
+  
+      { type: "heading", content: "Keeping it focused" },
+      { type: "text", content: "I originally planned a wider set of features, including private messaging. But the platform's real job was communicating outages, so I held those back to keep the core problem front and centre. Instead, each profile includes an optional phone number and email, so neighbours can still reach each other when they need to." },
+  
+      { type: "image", src: "/work/power-on/poweronwalkthrough.mp4", caption: "Walkthrough" },
+    ],
+  },
 ];
+
+
+
