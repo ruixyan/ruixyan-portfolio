@@ -4,17 +4,18 @@ export const site = {
   role: "Communication designer",
   intro:
     "I design identities, publications and websites, and build the web ones myself.",
-  email: "hello@example.com",
+  email: "work.ruixyan@gmail.com",
   links: [
     { label: "Instagram", href: "https://instagram.com/" },
     { label: "GitHub", href: "https://github.com/" },
     { label: "Are.na", href: "https://are.na/" },
   ],
+  greeting: "Hi, I'm Rachel!",
+  // First paragraph is shown large as the lead; the rest sit in the narrower column below.
   about: [
     "I'm a junior at Parsons School of Design, majoring in Communication Design and minoring in Economics.",
     "I'm a designer and creative coder with an insatiable need to experiment with new techniques and technologies.",
-
-    "My work mainly focuses on using interactivity in its various forms to create engaging and unique experiences, while also designing cohesive and engaging visual systems that can span across a variety of mediums. I believes in simplifying complex systems through meaningful and detail oriented design, in order to convey any message possible.",
+    "My work mainly focuses on using interactivity…",
   ],
   // Optional portrait for the About page, e.g. "/about/portrait.jpg" in /public
   portrait: "public/profile.png",

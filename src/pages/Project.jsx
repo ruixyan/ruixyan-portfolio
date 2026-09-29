@@ -4,6 +4,64 @@ import Media from "../components/Media";
 import NotFound from "./NotFound";
 import useTitle from "../hooks/useTitle";
 
+// One piece of a case study. Add a new layout by adding a new `case`.
+function Block({ block, title, ratio }) {
+  switch (block.type) {
+    case "heading":
+      return <h2 className="block-heading">{block.content}</h2>;
+
+    case "text":
+      return <p className="block-text">{block.content}</p>;
+
+    case "image":
+      return (
+        <figure className={`block-image${block.wide === false ? " block-image--inset" : ""}`}>
+          <Media src={block.src} alt={block.alt || title} ratio={block.ratio || ratio} />
+          {block.caption && <figcaption>{block.caption}</figcaption>}
+        </figure>
+      );
+
+    case "pair":
+      return (
+        <figure className="block-pair">
+          <div className="block-pair-images">
+            {block.images.map((src, i) => (
+              <Media key={i} src={src} alt={block.alt || title} ratio={block.ratio || ratio} />
+            ))}
+          </div>
+          {block.caption && <figcaption>{block.caption}</figcaption>}
+        </figure>
+      );
+
+      case "grid":
+  return (
+    <figure className="block-grid">
+      <div
+        className="block-grid-images"
+        style={{ "--grid-cols": block.columns || 2 }}
+      >
+        {block.images.map((src, i) => (
+          <Media key={i} src={src} alt={block.alt || title} ratio={block.ratio || ratio} />
+        ))}
+      </div>
+      {block.caption && <figcaption>{block.caption}</figcaption>}
+    </figure>
+  );
+
+    case "side":
+      // Image and text next to each other; set flip: true for text on the left
+      return (
+        <div className={`block-side${block.flip ? " block-side--flip" : ""}`}>
+          <Media src={block.src} alt={block.alt || title} ratio={block.ratio || ratio} />
+          <p className="block-side-text">{block.content}</p>
+        </div>
+      );
+
+    default:
+      return null;
+  }
+}
+
 export default function Project() {
   const { slug } = useParams();
   const index = projects.findIndex((p) => p.slug === slug);
@@ -12,7 +70,7 @@ export default function Project() {
   if (!project) return <NotFound />;
 
   const next = projects[(index + 1) % projects.length];
-  const { title, year, tags, role, tools, summary, body, images, ratio } = project;
+  const { title, year, tags, role, tools, summary, body, images, ratio, blocks } = project;
 
   return (
     <article className="project">
@@ -28,16 +86,27 @@ export default function Project() {
           {tools && <div><dt>Tools</dt><dd>{tools}</dd></div>}
           <div><dt>Type</dt><dd>{tags.join(", ")}</dd></div>
         </dl>
-        <div className="project-body">
-          {body.map((para, i) => <p key={i}>{para}</p>)}
-        </div>
+        {/* With blocks, the intro text lives in the blocks instead */}
+        {body && (
+          <div className="project-body">
+            {body.map((para, i) => <p key={i}>{para}</p>)}
+          </div>
+        )}
       </div>
 
-      <div className="project-images">
-        {images.map((src, i) => (
-          <Media key={i} src={src} alt={`${title}, image ${i + 1}`} ratio={ratio} eager={i === 0} />
-        ))}
-      </div>
+      {blocks ? (
+        <div className="project-blocks">
+          {blocks.map((block, i) => (
+            <Block key={i} block={block} title={title} ratio={ratio} />
+          ))}
+        </div>
+      ) : (
+        <div className="project-images">
+          {images.map((src, i) => (
+            <Media key={i} src={src} alt={`${title}, image ${i + 1}`} ratio={ratio} eager={i === 0} />
+          ))}
+        </div>
+      )}
 
       {projects.length > 1 && (
         <nav className="project-next" aria-label="Next project">

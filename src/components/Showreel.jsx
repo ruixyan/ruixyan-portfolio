@@ -102,27 +102,40 @@ export default function Showreel({ onSlideChange }) {
         );
       })}
 
-      {slides.length > 1 && (
-        <div className="showreel-controls">
-          {slides.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              className="showreel-dot"
-              aria-label={`Show ${p.title}`}
-              aria-current={i === index}
-              onClick={() => go(i)}
-            />
-          ))}
-          {!reduced && (
-            <button
-              type="button"
-              className="showreel-toggle"
-              onClick={() => setStopped((s) => !s)}
-            >
-              {stopped ? "Play" : "Pause"}
-            </button>
-          )}
+{slides.length > 1 && (
+  <div className="showreel-controls">
+    <div className="showreel-dots">
+      {slides.map((p, i) => (
+        <button
+          key={p.slug}
+          type="button"
+          className="showreel-dot"
+          aria-label={`Show ${p.title}`}
+          aria-current={i === index}
+          onClick={() => go(i)}
+        />
+      ))}
+    </div>
+
+    {!reduced && (
+      <button
+        type="button"
+        className="showreel-toggle"
+        aria-label={stopped ? "Play slideshow" : "Pause slideshow"}
+        onClick={() => setStopped((s) => !s)}
+      >
+        {stopped ? (
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path d="M4 2.5v11l9-5.5z" fill="currentColor" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <rect x="3.5" y="2.5" width="3" height="11" fill="currentColor" />
+            <rect x="9.5" y="2.5" width="3" height="11" fill="currentColor" />
+          </svg>
+        )}
+      </button>
+    )}
         </div>
       )}
     </section>

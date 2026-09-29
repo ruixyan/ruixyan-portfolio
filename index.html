@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rachel Yan</title>
+    <!-- Apply a saved light/dark choice before the page paints, so it never flashes the wrong theme -->
+<script>
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+  } catch (e) {}
+</script>
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />

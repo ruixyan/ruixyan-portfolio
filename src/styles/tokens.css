@@ -10,7 +10,7 @@
 
   @font-face {
     font-family: "Social-Bold";
-    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Bold.otf") format("woff2");
+    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Black.otf") format("woff2");
     font-weight: 700;
     font-display: swap;
   }
@@ -23,8 +23,8 @@
   }
 
   @font-face {
-    font-family: "Synt-Bold";
-    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Bold.otf") format("woff2");
+    font-family: "Synt-Medium";
+    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Medium.otf") format("woff2");
     font-weight: 800;
     font-display: swap;
   }
@@ -36,19 +36,27 @@
     font-display: swap;
   }
 
+  @font-face {
+    font-family: "Monument-Regular";
+    src: url("/public/fonts/Monument Grotesk/ABC Monument Grotesk/ABCMonumentGroteskTrial-Regular.otf") format("woff2");
+    font-weight: 800;
+    font-display: swap;
+  }
+
    :root {
     --header-height: 4.5rem;
   /* Color */
-  --color-bg: #e8eae6;          /* page background */
+  --color-bg: #f3f3f3;          /* page background */
   --color-surface: #d6dad3;     /* placeholders, subtle fills */
-  --color-ink: #1f2433;         /* main text */
+  --color-ink: #0b0f1b;         /* main text */
   --color-muted: #5d6270;       /* secondary text */
   --color-accent: #752fd8;      /* hover, focus, active nav */
   --color-line: rgb(31 36 51 / 0.2);
+  color-scheme: light;
 
   /* Type */
-  --font-sans: "Social-Mono", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Social-Regular", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Social-Regular", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Synt-Medium", "Helvetica Neue", Arial, sans-serif;
 
   --step--1: 0.833rem;
   --step-0: 1rem;
@@ -59,7 +67,7 @@
 
   --leading-tight: 1.04;
   --leading-body: 1.5;
-  --tracking-display: -0.02em;
+  --tracking-display: -0.025rem;
 
   /* Space */
   --space-1: 0.25rem;
@@ -76,3 +84,30 @@
   --measure: 60ch;                      /* max line length for body text */
   --radius: 0;                          /* try 4px or 12px for a softer feel */
 }
+
+
+/* ------------------------------------------------------------
+   Dark mode. Used when the visitor's system is set to dark
+   (unless they picked light with the toggle), or when they
+   pick dark with the toggle.
+   ------------------------------------------------------------ */
+   @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-bg: #15171c;
+      --color-surface: #262930;
+      --color-ink: #e6e8e3;
+      --color-muted: #9a9fab;
+      --color-accent: #8c9dff;
+      --color-line: rgb(230 232 227 / 0.2);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --color-bg: #15171c;
+    --color-surface: #262930;
+    --color-ink: #e6e8e3;
+    --color-muted: #9a9fab;
+    --color-accent: #8c9dff;
+    --color-line: rgb(230 232 227 / 0.2);
+    color-scheme: dark;
+  }

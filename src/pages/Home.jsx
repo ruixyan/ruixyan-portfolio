@@ -9,7 +9,6 @@ import { useHeaderTitle } from "../context/HeaderTitle";
 export default function Home() {
   useTitle();
   const { setTitle } = useHeaderTitle();
-  const [slideTitle, setSlideTitle] = useState("");
   const [inWork, setInWork] = useState(false);
   const workRef = useRef(null);
 
@@ -27,20 +26,15 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    setTitle(inWork ? "Selected work" : slideTitle);
-  }, [inWork, slideTitle, setTitle]);
+    setTitle(inWork ? "Selected work" : "Showreel");
+  }, [inWork, setTitle]);
 
   // Clear the header title when leaving the home page
   useEffect(() => () => setTitle(""), [setTitle]);
 
   return (
     <>
-      <Showreel onSlideChange={(p) => setSlideTitle(p.title)} />
-
-      {/* <section className="hero">
-        <h1 className="hero-statement">{site.intro}</h1>
-        <p className="hero-role">{site.role}</p>
-      </section> */}
+      <Showreel />
 
       <section aria-label="Work" ref={workRef}>
         <ul className="work-list">

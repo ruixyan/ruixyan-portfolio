@@ -1,117 +1,145 @@
 /* ------------------------------------------------------------
-   Full-screen showreel. Slides crossfade; captions sit bottom-left.
+   Full-screen showreel. Slides crossfade; the project title sits
+   centred under the header, controls along the bottom.
    ------------------------------------------------------------ */
-.showreel {
-  --reel-fade: 1.2s;
-  --reel-text: #fff;
-
-  position: relative;
-  /* Break out of the page gutter to go edge to edge */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  /* Slide up under the header so it floats over the image */
-  margin-top: calc(-1 * var(--header-height));
-  height: 100svh;
-  overflow: hidden;
-  background: var(--color-ink);
-  color: var(--reel-text);
-}
-
-.showreel-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--reel-fade) ease, visibility 0s linear var(--reel-fade);
-}
-.showreel-slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity var(--reel-fade) ease, visibility 0s;
-  z-index: 1;
-}
-.showreel-slide:hover { color: inherit; }
-
-.showreel-slide img,
-.showreel-slide video,
-.showreel-placeholder {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.showreel-placeholder { background: var(--color-muted); }
-
-/* Soft shade at the bottom so white text reads on light images */
-.showreel-slide::after {
-  content: "";
-  position: absolute;
-  inset: 50% 0 0 0;
-  background: linear-gradient(to top, rgb(0 0 0 / 0.35), transparent);
-  pointer-events: none;
-}
-
-.showreel-caption {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: calc(var(--gutter) + var(--space-6));
-  z-index: 1;
-}
-.showreel-title {
-  font-family: var(--font-display);
-  font-size: var(--step-4);
-  font-weight: 500;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
-  max-width: 16ch;
-  text-wrap: balance;
-}
-.showreel-meta {
-  display: flex;
-  gap: var(--space-4);
-  margin-top: var(--space-3);
-  font-size: var(--step-1);
-}
-
-.showreel-controls {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: var(--gutter);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.showreel-dot {
-  width: 2.5rem;
-  height: 1.5rem;          /* tall tap target, thin visible line */
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-.showreel-dot::before {
-  content: "";
-  display: block;
-  height: 2px;
-  background: var(--reel-text);
-  opacity: 0.4;
-}
-.showreel-dot[aria-current="true"]::before { opacity: 1; }
-.showreel-toggle {
-  margin-left: auto;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-.showreel :focus-visible { outline-color: var(--reel-text); }
-
-@media (prefers-reduced-motion: reduce) {
-  .showreel-slide, .showreel-slide.is-active { transition: none; }
-}
+   .showreel {
+    --reel-fade: 1.2s;   /* how long each crossfade takes */
+  
+    position: relative;
+    /* Break out of the page gutter to go edge to edge */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    /* Slide up under the header so it floats over the image */
+    margin-top: calc(-1 * var(--header-height));
+    height: 100svh;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+  }
+  
+  /* ---------- Slides ---------- */
+  .showreel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--reel-fade) ease, visibility 0s linear var(--reel-fade);
+  }
+  .showreel-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--reel-fade) ease, visibility 0s;
+    z-index: 1;
+  }
+  .showreel-slide:hover { color: inherit; }
+  
+  .showreel-slide img,
+  .showreel-slide video,
+  .showreel-placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .showreel-placeholder { background: var(--color-muted); }
+  
+  /* ---------- Caption (under the header's "Showreel") ---------- */
+  .showreel-caption {
+    position: absolute;
+    top: calc(var(--header-height) - var(--space-3));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: calc(100% - 2 * var(--gutter));
+    text-align: center;
+    color: #fff;
+    mix-blend-mode: difference;
+    transition: opacity 0.3s ease;
+  }
+  /* Hide the outgoing caption quickly so two titles never overlap mid-fade */
+  .showreel-slide:not(.is-active) .showreel-caption { opacity: 0; }
+  
+  .showreel-title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    text-wrap: balance;
+  }
+  .showreel-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-1);
+    font-size: var(--step--1);
+  }
+  
+  /* ---------- Controls: dots centred, play/pause on the right ---------- */
+  .showreel-controls {
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: var(--gutter);
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;   /* empty | dots | pause */
+    align-items: center;
+    color: #fff;
+    mix-blend-mode: difference;
+  }
+  
+  .showreel-dots {
+    grid-column: 2;
+    display: flex;
+    gap: var(--space-1);
+  }
+  .showreel-dot {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;          /* bigger tap target than the visible dot */
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;         /* buttons don't inherit text colour by default */
+    cursor: pointer;
+  }
+  .showreel-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.4;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .showreel-dot:hover::before { opacity: 0.8; }
+  .showreel-dot[aria-current="true"]::before {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  
+  .showreel-toggle {
+    grid-column: 3;
+    justify-self: end;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .showreel :focus-visible { outline-color: #fff; }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .showreel-slide,
+    .showreel-slide.is-active,
+    .showreel-caption,
+    .showreel-dot::before { transition: none; }
+  }

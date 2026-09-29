@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { site } from "../data/site";
 import { useHeaderTitle } from "../context/HeaderTitle";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const { title } = useHeaderTitle();
@@ -15,9 +16,10 @@ export default function Header() {
 
       <nav aria-label="Main">
         <ul className="nav-list">
-          <li><NavLink to="/" end>Work</NavLink></li>
+          <li><NavLink to="/" end>Home</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
           <li><a href={`mailto:${site.email}`}>Contact</a></li>
+          <li><ThemeToggle /></li>
         </ul>
       </nav>
     </header>

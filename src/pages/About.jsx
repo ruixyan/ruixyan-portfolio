@@ -4,13 +4,25 @@ import useTitle from "../hooks/useTitle";
 
 export default function About() {
   useTitle("About");
+  const [lead, ...rest] = site.about;
+
   return (
     <div className="about">
-      <div className="about-text">
-        <h1 className="page-title">Hi, I'm Rachel!</h1>
-        {site.about.map((para, i) => <p key={i}>{para}</p>)}
+      <header className="about-intro">
+        <h1 className="about-greeting">{site.greeting}</h1>
+        {lead && <p className="about-lead">{lead}</p>}
+      </header>
 
-        <h2 className="section-heading">Experience and education</h2>
+      <div className="about-portrait">
+        <Media src={site.portrait} alt={`Portrait of ${site.name}`} ratio="4 / 5" />
+      </div>
+
+      <div className="about-body">
+        {rest.map((para, i) => <p key={i}>{para}</p>)}
+      </div>
+
+      <section className="about-cv" aria-labelledby="cv-heading">
+        <h2 id="cv-heading" className="about-cv-heading">Experience and education</h2>
         <ul className="cv-list">
           {site.experience.map((item) => (
             <li key={item.title}>
@@ -19,10 +31,7 @@ export default function About() {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="about-image">
-        <Media src={site.portrait} alt={`Portrait of ${site.name}`} ratio="3 / 4" />
-      </div>
+      </section>
     </div>
   );
 }
