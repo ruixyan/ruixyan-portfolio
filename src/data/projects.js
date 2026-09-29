@@ -41,16 +41,29 @@ export const projects = [
     tools: "Next.js, Supabase",
     summary: "Web design and development work for Onishi Gallery.",
     body: ["During my internship, I designed and developed an internal database for Onishi Gallery, to organize all of their artwork, artist and client information."],
-    blocks: [
-      { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg", caption: "Artwork database, desktop" },
-    
-      { type: "heading", content: "Research" },
-      { type: "text", content: "I interviewed the gallery staff about how they…" },
-      { type: "pair", images: [null, null] },
-    
-      { type: "heading", content: "Price lists" },
-      { type: "side", src: null, content: "Staff can generate a printable price list from any selection…" },
-    ],
+
+blocks: [
+  { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg" },
+
+  { type: "heading", content: "The problem" },
+  { type: "text", content: "The original database they were using was a Dropbox folder that was disorganized and convoluted, so I was tasked with making a cleaner and more user-friendly system that they could easily use to categorize and search for three categories: artworks, artists and clients." },
+
+  { type: "heading", content: "Research" },
+  { type: "text", content: "I decided on using Next.js and Supabase to build the project because..." },
+  { type: "image", src: null, wide: false, caption: "How artworks, artists and clients connect" },
+
+  { type: "heading", content: "Design decisions" },
+  { type: "side", src: null, content: "Filters: …" },
+  { type: "side", src: null, flip: true, content: "Artwork cards: …" },
+
+  { type: "heading", content: "Building it" },
+  { type: "text", content: "…" },
+
+  { type: "grid", images: [null, null, null, null], ratio: "16 / 10", caption: "Artworks, artists, clients, price list" },
+
+  { type: "heading", content: "Outcome" },
+  { type: "text", content: "…" },
+],
   },
   {
     slug: "symbiosis",
