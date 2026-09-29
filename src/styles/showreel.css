@@ -1,0 +1,117 @@
+/* ------------------------------------------------------------
+   Full-screen showreel. Slides crossfade; captions sit bottom-left.
+   ------------------------------------------------------------ */
+.showreel {
+  --reel-fade: 1.2s;
+  --reel-text: #fff;
+
+  position: relative;
+  /* Break out of the page gutter to go edge to edge */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  /* Slide up under the header so it floats over the image */
+  margin-top: calc(-1 * var(--header-height));
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-ink);
+  color: var(--reel-text);
+}
+
+.showreel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--reel-fade) ease, visibility 0s linear var(--reel-fade);
+}
+.showreel-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--reel-fade) ease, visibility 0s;
+  z-index: 1;
+}
+.showreel-slide:hover { color: inherit; }
+
+.showreel-slide img,
+.showreel-slide video,
+.showreel-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.showreel-placeholder { background: var(--color-muted); }
+
+/* Soft shade at the bottom so white text reads on light images */
+.showreel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.35), transparent);
+  pointer-events: none;
+}
+
+.showreel-caption {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: calc(var(--gutter) + var(--space-6));
+  z-index: 1;
+}
+.showreel-title {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.showreel-meta {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--step-1);
+}
+
+.showreel-controls {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.showreel-dot {
+  width: 2.5rem;
+  height: 1.5rem;          /* tall tap target, thin visible line */
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.showreel-dot::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--reel-text);
+  opacity: 0.4;
+}
+.showreel-dot[aria-current="true"]::before { opacity: 1; }
+.showreel-toggle {
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.showreel :focus-visible { outline-color: var(--reel-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  .showreel-slide, .showreel-slide.is-active { transition: none; }
+}

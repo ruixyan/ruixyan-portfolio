@@ -11,13 +11,15 @@ export const site = {
     { label: "Are.na", href: "https://are.na/" },
   ],
   about: [
-    "Write two or three short paragraphs here: what you make, how you work, and what you're looking for next.",
-    "Keep it specific. A sentence about a project you loved is worth more than a list of adjectives.",
+    "I'm a junior at Parsons School of Design, majoring in Communication Design and minoring in Economics.",
+    "I'm a designer and creative coder with an insatiable need to experiment with new techniques and technologies.",
+
+    "My work mainly focuses on using interactivity in its various forms to create engaging and unique experiences, while also designing cohesive and engaging visual systems that can span across a variety of mediums. I believes in simplifying complex systems through meaningful and detail oriented design, in order to convey any message possible.",
   ],
   // Optional portrait for the About page, e.g. "/about/portrait.jpg" in /public
-  portrait: null,
+  portrait: "public/profile.png",
   experience: [
-    { title: "Design intern, Studio Name", years: "2025" },
+    { title: "Web Design / Development intern, Onishi Galery", years: "2026" },
     { title: "BFA Communication Design, School Name", years: "2023–2027" },
   ],
 };

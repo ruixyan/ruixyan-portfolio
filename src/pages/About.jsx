@@ -7,7 +7,7 @@ export default function About() {
   return (
     <div className="about">
       <div className="about-text">
-        <h1 className="page-title">About</h1>
+        <h1 className="page-title">Hi, I'm Rachel!</h1>
         {site.about.map((para, i) => <p key={i}>{para}</p>)}
 
         <h2 className="section-heading">Experience and education</h2>

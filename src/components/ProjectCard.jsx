@@ -2,16 +2,17 @@ import { Link } from "react-router-dom";
 import Media from "./Media";
 
 export default function ProjectCard({ project, eager }) {
-  const { slug, title, year, tags, cover, ratio, size = "medium" } = project;
+  const { slug, title, tags, cover, summary } = project;
   return (
-    <li className={`card card--${size}`}>
-      <Link to={`/work/${slug}`} className="card-link">
-        <Media src={cover} alt="" ratio={ratio} eager={eager} />
-        <div className="card-meta">
-          <h3 className="card-title">{title}</h3>
-          <span className="card-year">{year}</span>
+    <li className="work-row">
+      <Link to={`/work/${slug}`} className="work-row-link">
+        {/* Fixed 16:9 so every row lines up. Change it here to change all rows. */}
+        <Media src={cover} alt="" ratio="16 / 9" eager={eager} />
+        <div className="work-row-text">
+          <h3 className="work-row-title">{title}</h3>
+          <p className="work-row-tags">{tags.join(", ")}</p>
+          {summary && <p className="work-row-summary">{summary}</p>}
         </div>
-        <p className="card-tags">{tags.join(", ")}</p>
       </Link>
     </li>
   );

@@ -1,18 +1,54 @@
 /* ------------------------------------------------------------
    Design tokens. Change the look of the whole site from here.
    ------------------------------------------------------------ */
-:root {
+   @font-face {
+    font-family: "Social-Regular";
+    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Regular.otf") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Social-Bold";
+    src: url("/public/fonts/Social/ABC\ Social/ABCSocialTrial-Bold.otf") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Synt-Regular";
+    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Regular.otf") format("woff2");
+    font-weight: 800;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Synt-Bold";
+    src: url("/public/fonts/Synt/Synt/ABC\ Synt/ABCSyntTrial-Bold.otf") format("woff2");
+    font-weight: 800;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Social-Mono";
+    src: url("/public/fonts/Social/ABC Social Mono/ABCSocialMonoTrial-Regular.otf") format("woff2");
+    font-weight: 800;
+    font-display: swap;
+  }
+
+   :root {
+    --header-height: 4.5rem;
   /* Color */
   --color-bg: #e8eae6;          /* page background */
   --color-surface: #d6dad3;     /* placeholders, subtle fills */
   --color-ink: #1f2433;         /* main text */
   --color-muted: #5d6270;       /* secondary text */
-  --color-accent: #2f4bd8;      /* hover, focus, active nav */
+  --color-accent: #752fd8;      /* hover, focus, active nav */
   --color-line: rgb(31 36 51 / 0.2);
 
   /* Type */
-  --font-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-sans); /* swap to a second family if you want contrast */
+  --font-sans: "Social-Mono", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Social-Regular", "Helvetica Neue", Arial, sans-serif;
 
   --step--1: 0.833rem;
   --step-0: 1rem;
@@ -23,7 +59,7 @@
 
   --leading-tight: 1.04;
   --leading-body: 1.5;
-  --tracking-display: -0.03em;
+  --tracking-display: -0.02em;
 
   /* Space */
   --space-1: 0.25rem;
