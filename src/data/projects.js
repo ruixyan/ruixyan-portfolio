@@ -1,5 +1,52 @@
 export const projects = [
   {
+    slug: "onishi-gallery",
+    title: "Onishi Gallery",
+    featured: true,
+    year: 2026,
+    tags: ["Web"],
+    size: "large",
+    ratio: "auto",
+    cover: "/work/onishi/onishi-mockup-blurred.jpg",
+    role: "Designer, Developer",
+    tools: "Next.js, Supabase",
+    summary: "Web design and development work for Onishi Gallery.",
+    body: ["During my internship, I designed and developed an internal database for Onishi Gallery, to organize all of their artwork, artist and client information."],
+
+    blocks: [
+      { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg" },
+    
+      { type: "heading", content: "The problem" },
+      { type: "text", content: "Onishi Gallery kept its records in a shared Dropbox folder: files for artworks, artists and clients, spread across folders with no consistent structure. Answering a simple question, like which pieces by one artist were still available, meant opening file after file." },
+      { type: "text", content: "My brief was to replace it with one system the staff could search and update themselves, without needing any technical knowledge." },
+    
+      { type: "heading", content: "Understanding the gallery" },
+      { type: "text", content: "I started by looking through the gallery's original database. Three things came up again and again: they needed to find work by artist, see at a glance what was still available, and pull together client lists quickly." },
+      { type: "image", src: "/work/onishi/connections.png", wide: false, caption: "How artworks, artists and clients connect" },
+    
+      { type: "heading", content: "Design decisions" },
+      { type: "side", src: "/work/onishi/onishi-blurred.png", content: "Search and filters sit in a fixed sidebar, so staff can narrow the collection by artist, artwork or client name, availability and price range without leaving the page." },
+      { type: "side", src: "/work/onishi/onishi-artwork-detail-blurred.png", flip: true, content: "Each artwork card shows only what's needed to recognise a piece: the image, title, artist, year and price. Status tags like Unique and Available make it clear what can be offered without opening each record." },
+    
+      { type: "heading", content: "Building it" },
+      { type: "text", content: "I built the tool with Next.js and Supabase, deployed on Vercel. Supabase gave the gallery a real database with secure logins, and its free tier suited a small team's budget. Next.js let me build the interface and data handling in one codebase, and Vercel made updates as simple as pushing a change." },
+      { type: "text", content: "Artworks, artists and clients each live in their own table and link to one another, so an artist's page can list all their work and a client's record can show what they've bought. Filtering happens instantly in the browser, and the layout adapts for phones so staff can look things up away from their desk." },
+    
+      { type: "grid", images: [
+          "/work/onishi/onishi-mockup-blurred.jpg",
+          "/work/onishi/onishi-artwork-detail-blurred.png",
+          "/work/onishi/artist-works.jpg",
+          "/work/onishi/onishi-add-art.png",
+        ],
+        ratio: "16 / 10",
+        caption: "Artwork list, artwork detail, artists, adding an artwork",
+      },
+    
+      { type: "heading", content: "Outcome" },
+      { type: "text", content: "Staff can now find a piece and build a price list in minutes rather than digging through folders. They are also able to upload images and categorize them as they see fit." },
+    ],
+  },
+  {
     slug: "starlight",
     title: "Starlight",
     featured: true,
@@ -30,55 +77,6 @@ export const projects = [
         ratio: "16 / 9",
         caption: "Frames from the lyric video",
       },
-    ],
-  },
-  {
-    slug: "onishi-gallery",
-    title: "Onishi Gallery",
-    featured: true,
-    year: 2026,
-    tags: ["Web"],
-    size: "large",
-    ratio: "auto",
-    cover: "/work/onishi/onishi-mockup-blurred.jpg",
-    role: "Designer, Developer",
-    tools: "Next.js, Supabase",
-    summary: "Web design and development work for Onishi Gallery.",
-    body: ["During my internship, I designed and developed an internal database for Onishi Gallery, to organize all of their artwork, artist and client information."],
-
-    blocks: [
-      { type: "image", src: "/work/onishi/onishi-mockup-blurred.jpg" },
-    
-      { type: "heading", content: "The problem" },
-      { type: "text", content: "Onishi Gallery kept its records in a shared Dropbox folder: files for artworks, artists and clients, spread across folders with no consistent structure. Answering a simple question, like which pieces by one artist were still available, meant opening file after file." },
-      { type: "text", content: "My brief was to replace it with one system the staff could search and update themselves, without needing any technical knowledge." },
-    
-      { type: "heading", content: "Understanding the gallery" },
-      { type: "text", content: "I started by [talking with the staff / watching how they used the Dropbox folder]. Three things came up again and again: they needed to find work by artist, see at a glance what was still available, and pull together price lists for clients quickly." },
-      { type: "image", src: null, wide: false, caption: "How artworks, artists and clients connect" },
-    
-      { type: "heading", content: "Design decisions" },
-      { type: "side", src: null, content: "Search and filters sit in a fixed sidebar, so staff can narrow the collection by artist, artwork or client name, availability and price range without leaving the page." },
-      { type: "side", src: null, flip: true, content: "Each artwork card shows only what's needed to recognise a piece: the image, title, artist, year and price. Status tags like Unique and Available make it clear what can be offered without opening each record." },
-      { type: "side", src: "/work/onishi/onishi-artwork-detail-blurred.png", content: "The interface stays quiet, in white and grey with the gallery's red used only for key actions, so the artwork photography is always the focus." },
-    
-      { type: "heading", content: "Building it" },
-      { type: "text", content: "I built the tool with Next.js and Supabase, deployed on Vercel. Supabase gave the gallery a real database with secure logins, and its free tier suited a small team's budget. Next.js let me build the interface and data handling in one codebase, and Vercel made updates as simple as pushing a change." },
-      { type: "text", content: "Artworks, artists and clients each live in their own table and link to one another, so an artist's page can list all their work and a client's record can show what they've bought. Filtering happens instantly in the browser, and the layout adapts for phones so staff can look things up away from their desk." },
-    
-      { type: "grid", images: [
-          "/work/onishi/onishi-mockup-blurred.jpg",
-          "/work/onishi/onishi-artwork-detail-blurred.png",
-          "/work/onishi/onishi-artists.png",
-          "/work/onishi/onishi-add-art.png",
-        ],
-        ratio: "16 / 10",
-        caption: "Artwork list, artwork detail, artists, adding an artwork",
-      },
-    
-      { type: "heading", content: "Outcome" },
-      { type: "text", content: "[The gallery now uses the tool for… / Staff can now find a piece and build a price list in minutes rather than digging through folders.] [One line of feedback from the staff, if you have it.]" },
-      { type: "text", content: "Next, I'd like to [add … / improve …]." },
     ],
   },
   {
