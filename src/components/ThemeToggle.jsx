@@ -20,8 +20,10 @@ export default function ThemeToggle() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  const isDark = theme === "dark";
+
   const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
+    const next = isDark ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
@@ -34,11 +36,13 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
-      aria-pressed={theme === "dark"}
+      role="switch"
+      aria-checked={isDark}
+      aria-label="Dark mode"
+      className="theme-switch"
       onClick={toggle}
     >
-      {theme === "dark" ? "Light" : "Dark"}
+      <span className="theme-switch-knob" aria-hidden="true" />
     </button>
   );
 }

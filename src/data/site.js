@@ -13,14 +13,19 @@ export const site = {
   greeting: "Hi, I'm Rachel!",
   // First paragraph is shown large as the lead; the rest sit in the narrower column below.
   about: [
-    "I'm a junior at Parsons School of Design, majoring in Communication Design and minoring in Economics.",
+    "Communication Design @ The\u00A0New School",
     "I'm a designer and creative coder with an insatiable need to experiment with new techniques and technologies.",
-    "My work mainly focuses on using interactivity…",
+    "My work mainly focuses on using interactivity in its various forms to create engaging and unique experiences, while also designing cohesive and engaging visual systems that can span across a variety of mediums. I believe in simplifying complex systems through meaningful and detail oriented design, in order to convey any message possible.",
   ],
   // Optional portrait for the About page, e.g. "/about/portrait.jpg" in /public
-  portrait: "public/profile.png",
+  portrait: "/profile.png",
   experience: [
-    { title: "Web Design / Development intern, Onishi Galery", years: "2026" },
-    { title: "BFA Communication Design, School Name", years: "2023–2027" },
+    { title: "Web Design / Development Intern, Onishi Gallery", years: "2026" },
+    { title: "Code Tutor, Parsons Communication Design", years: "2026–Present" },
+    { title: "Freelance Web Developer / Designer, WILL-V", years: "2026–Present" },
+    { title: "Intern, CCTV-5, Beijing", years: "2024" },
+    { title: "BFA Communication Design, Parsons School of Design", years: "2023–2027" },
   ],
+
+  resume: "/Rachel_Yan_Resume.pdf",
 };

@@ -22,7 +22,14 @@ export default function About() {
       </div>
 
       <section className="about-cv" aria-labelledby="cv-heading">
-        <h2 id="cv-heading" className="about-cv-heading">Experience and education</h2>
+        <div className="about-cv-label">
+          <h2 id="cv-heading" className="about-cv-heading">Experience and education</h2>
+          {site.resume && (
+            <a className="about-resume" href={site.resume} download>
+              Download résumé (PDF)
+            </a>
+          )}
+        </div>
         <ul className="cv-list">
           {site.experience.map((item) => (
             <li key={item.title}>
