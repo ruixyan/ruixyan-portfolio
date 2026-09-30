@@ -63,19 +63,20 @@ export const projects = [
     ],
     blocks: [
       { type: "embed", src: "https://www.youtube.com/watch?v=B9e3GGrVyM8", caption: "Full lyric video" },
-      { type: "image", src: "/work/starlight/starlight_frames.png" },
+      { type: "image", src: "/work/starlight/starlight_frames.png",
+        caption: "Frames from the lyric video" },
     
       { type: "text", content: "The visuals mirror that sense of distance. The lyrics drift in soft, hazy and slightly out of focus, as if they're hard to hold onto, set against a worn, textured background." },
       { type: "text", content: "I distorted and roughened the type throughout so it would carry the same grain as the music, letting the texture of the sound show up in the letterforms themselves." },
     
       { type: "grid", images: [
           "/work/starlight/starlight_3.gif",
-          "/work/starlight/Sequence_01.mp4",
-          "/work/starlight/Sequence_02.mp4",
-          "/work/starlight/Sequence_03.mp4",
+          "/work/starlight/Sequence_2.gif",
+          "/work/starlight/Sequence_3.gif",
+          "/work/starlight/Sequence_4.gif",
         ],
         ratio: "16 / 9",
-        caption: "Frames from the lyric video",
+        caption: "Gifs from the lyric video",
       },
     ],
   },

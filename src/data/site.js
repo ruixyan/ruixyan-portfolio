@@ -25,6 +25,7 @@ export const site = {
     { title: "Freelance Web Developer / Designer, WILL-V", years: "2026–Present" },
     { title: "Intern, CCTV-5, Beijing", years: "2024" },
     { title: "BFA Communication Design, Parsons School of Design", years: "2023–2027" },
+    { title: "Economics Minor, The New School", years: "2023–2027" },
   ],
 
   resume: "/Rachel_Yan_Resume.pdf",
